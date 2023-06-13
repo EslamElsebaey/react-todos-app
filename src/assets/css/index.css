@@ -300,10 +300,10 @@ main {
   line-height: 1.3;
 }
 
-/* .myApp{
-  height: 100vh;
-  position: relative;
-} */
+.myApp{
+  height: 92vh;
+  /* position: relative; */
+}
 
 @media (max-width: 768px) {
   /* main{
