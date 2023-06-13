@@ -254,7 +254,7 @@ main {
 
 .todos{
   min-height: 50vh;
-  max-height: 75vh;
+  max-height: 72vh;
   overflow-y: auto;
 }
 
