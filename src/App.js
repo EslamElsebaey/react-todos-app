@@ -5,8 +5,11 @@ import Footer from './views/Footer';
 function App() {
   return (
     <>
+    <div className='myApp'>
     <TodoList/>
     <Footer/>
+    </div>
+ 
     </>
   
   );
