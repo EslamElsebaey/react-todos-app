@@ -270,10 +270,10 @@ main {
   justify-content: center;
   direction: ltr;
   font-size: 20px;
-  /* position: absolute;
+  position: absolute;
   bottom: 0;
   left: 50%;
-  transform: translateX(-50%); */
+  transform: translateX(-50%);
 }
 .footer-p a {
   margin-inline-start: 4px;
