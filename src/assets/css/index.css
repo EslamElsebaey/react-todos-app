@@ -98,7 +98,7 @@ main {
   align-items: center;
   justify-content: center;
   width: 100%;
-  margin-bottom: 59px;
+  /* margin-bottom: 59px; */
   /* width: 100vw; */
 }
 .container {
@@ -305,9 +305,9 @@ main {
 }
 
 @media (max-width: 768px) {
-  main{
+  /* main{
     margin-bottom: 43px;
-  }
+  } */
   .no-todos{
     font-size: 20px;
   }
