@@ -1,0 +1,146 @@
+import React, { useState } from 'react'
+import Todos from './../components/Todos';
+import TodosForm from './../components/TodosForm';
+import alertify from 'alertifyjs';
+import 'alertifyjs/build/css/themes/default.rtl.css';
+import 'alertifyjs/build/css/alertify.rtl.css';
+
+
+// alertify js edit
+
+alertify.defaults.glossary.ok = 'موافق';
+alertify.defaults.glossary.cancel = 'إلغاء';
+
+
+const initialData = localStorage.getItem("todos") ? JSON.parse(localStorage.getItem("todos")) : []
+
+
+function TodoList() {
+
+const [todos , setTodos] = useState(initialData);
+// mode  =>  add , filter , edit
+const [mode , setMode] = useState("add");
+const [activeTodo , setActiveTodo] = useState(null);
+ 
+
+// set to local 
+function setToLocal (){
+  localStorage.setItem("todos" , JSON.stringify(todos))
+}
+
+// Toggle done in Todo
+function toggleDone (id){
+ let newTodos = todos.map(todo => {
+  if(todo.id === id){
+    todo.done = !todo.done
+  }
+  return todo
+ })
+
+ setTodos(newTodos)
+}
+
+// Delete Todo 
+function deleteTodo (id){
+  alertify.confirm(   "حذف مهمة", 
+    "هل تريد حذف المهمة ؟", function(){
+      let newTodos = todos.filter(todo =>  todo.id !== id )
+      setTodos(newTodos)
+    }, function(){});
+ 
+}
+
+
+// Add Todo 
+function addNewTodo (title){
+
+  if(mode !== "edit"){
+    const newTodo = {
+      id : Math.random() ,
+      title : title , 
+      done : false
+    }
+    setTodos((data)=>{
+      return [newTodo , ...data]
+    })
+  }else if (mode === "edit"){
+    const newTodos = todos.map(td => {
+      if(td.id ===  activeTodo.id){
+         td.title = title
+      }
+      return td
+    })
+    setTodos(newTodos)
+    setMode("add");
+  }
+ 
+
+}
+
+
+// Filter Todos
+function toggleFilter(){
+  if(mode === "edit"){
+    return
+  }
+  if(mode === "filter"){
+    setMode("add")
+  }else {
+    setMode("filter")
+  }
+}
+
+
+
+// Edit todo
+
+function editTodo(todo) {
+  setMode("edit");
+  setActiveTodo(todo);
+}
+
+let currentTodos = [...todos];
+
+if(mode === "filter"){
+  currentTodos =  todos.filter(todo => !todo.done );
+}
+
+if(mode === "edit" && activeTodo){
+  currentTodos = [activeTodo]
+}
+
+
+setToLocal()
+
+
+
+
+  return (
+    <>
+      <header>
+      <h1>قائمة المهام ({todos.length})</h1>
+    </header>
+    <main>
+        <div className='container'>
+      <div className="todos">
+      <TodosForm 
+        activeTodo={activeTodo}
+        mode={mode}
+        addNewTodo={addNewTodo}
+        toggleFilter={toggleFilter}/>
+      <Todos
+        mode={mode}
+        editTodo={editTodo} 
+        deleteTodo={deleteTodo} 
+        toggleDone={toggleDone}
+        todos= {currentTodos} />
+      </div>
+        </div>
+    </main>
+    </>
+    
+    
+  )
+}
+
+export default TodoList
