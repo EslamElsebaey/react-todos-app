@@ -249,8 +249,8 @@ main {
 }
 
 .todos{
-  min-height: 50vh;
-  max-height: 70vh;
+  /* min-height: 50vh; */
+  max-height: 65vh;
   overflow-y: auto;
 }
 
@@ -302,6 +302,7 @@ main {
 
 .myApp{
   height: 100vh;
+  position: relative;
 }
 
 @media (max-width: 768px) {
