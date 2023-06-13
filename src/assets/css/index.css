@@ -295,10 +295,10 @@ main {
 .todos-todo_text{
   line-height: 1.3;
 }
-
+/* 
 .myApp{
   height: 100vh;
-}
+} */
 
 @media (max-width: 768px) {
   .no-todos{
