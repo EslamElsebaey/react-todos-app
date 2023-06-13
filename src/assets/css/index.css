@@ -16,10 +16,8 @@
   --color-text: #dddce3;
   --color-text-light: #a8a3ba;
   --color-dark: #030203;
-
   --shadow-card: 6px 6px 15px rgba(0, 0, 0, 0.3),
     -5px -5px 12px rgba(117, 108, 147, 0.1);
-
   --font-family: "Almarai", "Segoe UI", sans-serif;
 }
 
@@ -71,17 +69,15 @@ html {
 }
 
 body {
-  background-color: var(--color-bg);
+  /* background-color: var(--color-bg); */
   color: var(--color-text);
-
-  background-color: #4158d0;
+  /* background-color: #4158d0; */
   background-image: linear-gradient(
     43deg,
     #b8c1ee 0%,
     #f0b9ec 46%,
     #fdefd3 100%
   );
-
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -102,6 +98,7 @@ main {
   align-items: center;
   justify-content: center;
   width: 100%;
+  margin-bottom: 59px;
   /* width: 100vw; */
 }
 .container {
@@ -110,7 +107,7 @@ main {
   box-shadow: var(--shadow-card);
   /* border-top: 1px solid var(--color-red); */
   /* border-radius: 7px; */
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 
@@ -253,12 +250,19 @@ main {
 
 .todos{
   min-height: 50vh;
-  max-height: 60vh;
+  max-height: 70vh;
   overflow-y: auto;
 }
 
 .footer-p{
+  background-image: linear-gradient(
+    174deg,
+    #b8c1ee 0%,
+    #f0b9ec 46%,
+    #fdefd3 100%
+  );
   width: 100%;
+  padding: 20px 0;
   text-align: center;
   color: #2f2b3b;
   display: flex;
@@ -266,10 +270,10 @@ main {
   justify-content: center;
   direction: ltr;
   font-size: 20px;
-  position: fixed;
-  bottom: 20px;
+  /* position: absolute;
+  bottom: 0;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%); */
 }
 .footer-p a {
   margin-inline-start: 4px;
@@ -296,11 +300,14 @@ main {
   line-height: 1.3;
 }
 
-.myApp{
+/* .myApp{
   height: 100vh;
-}
+} */
 
 @media (max-width: 768px) {
+  main{
+    margin-bottom: 43px;
+  }
   .no-todos{
     font-size: 20px;
   }
