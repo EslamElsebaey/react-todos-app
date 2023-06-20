@@ -276,6 +276,10 @@ main {
 .todos-todo_cta > div{
   opacity: 1;
 }
+.alertify .ajs-body .ajs-content .ajs-input, .alertify .ajs-footer .ajs-buttons.ajs-primary .ajs-button:focus{
+  outline: none;
+}
+
 
 
 @media (max-width: 850px) {
