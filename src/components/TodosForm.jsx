@@ -1,4 +1,4 @@
-import React, {  useState , useEffect } from 'react'
+import React, {  useState  } from 'react'
 import FeatherIcon from 'feather-icons-react';
 
 function TodosForm({addNewTodo , toggleFilter , mode , activeTodo}) {
