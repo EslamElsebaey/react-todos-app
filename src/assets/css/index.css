@@ -194,6 +194,7 @@ main {
   flex: 1;
   margin: 0 1rem;
   vertical-align: top;
+  font-size: 18px;
 }
 .todos-todo_cta {
   display: flex;
@@ -352,6 +353,9 @@ todos-form{
 }
 .btn{
   padding: 0px 20px;
+  font-size: 16px;
+}
+.todos-todo_text{
   font-size: 16px;
 }
 
