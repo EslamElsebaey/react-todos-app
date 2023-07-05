@@ -16,8 +16,8 @@ function TodosForm({addNewTodo , toggleFilter , mode , activeTodo}) {
       setEditRender(true)
     }
   
+
  
-   
     
  
 
@@ -38,16 +38,27 @@ function TodosForm({addNewTodo , toggleFilter , mode , activeTodo}) {
    
   }
 
+
+  const handleKeyUpToAddNewTodo = (event) => {
+    if(!title.trim()){
+      return
+    }
+    if (event.key === 'Enter') {
+      addNewTodo(title)
+      setTitle('')
+    }
+  }
+
   return (
     <div className='todos-form'>
       <div title='Filter todos' onClick={toggleFilter}  className={`todos-form_icon ${mode === "filter" ? "active" : ""} `}>
       <FeatherIcon icon="circle" />
       </div>
       <div className='todos-form_form'>
-        <input  value= {title} onChange={handleTitleChange} type="text" placeholder='اضف مهمة جديدة' />
+        <input onKeyUp={handleKeyUpToAddNewTodo}  value= {title} onChange={handleTitleChange} type="text" placeholder='اضف مهمة جديدة' />
       </div>
       <div className='todos-form_submit'>
-        <button disabled = {!title.trim()} onClick={ () =>handleAddNewTodo() } className='btn '> {mode === "edit" ? "تعديل" : "اضافة"} </button>
+        <button disabled = {!title.trim()} onClick={ () => handleAddNewTodo()} className='btn '> {mode === "edit" ? "تعديل" : "اضافة"} </button>
       </div>
     
     </div>

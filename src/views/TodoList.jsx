@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState  } from 'react'
 import Todos from './../components/Todos';
 import TodosForm from './../components/TodosForm';
 import alertify from 'alertifyjs';
@@ -16,6 +16,8 @@ const initialData = localStorage.getItem("todos") ? JSON.parse(localStorage.getI
 
 
 function TodoList() {
+
+
 
 const [todos , setTodos] = useState(initialData);
 // mode  =>  add , filter , edit
@@ -51,9 +53,11 @@ function deleteTodo (id){
 }
 
 
+
+
+
 // Add Todo 
 function addNewTodo (title){
-
   if(mode !== "edit"){
     const newTodo = {
       id : Math.random() ,
