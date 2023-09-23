@@ -57,7 +57,7 @@ function deleteTodo (id){
 
 
 // Add Todo 
-function addNewTodo (title){
+function addNewTodo (title , id){
   if(mode !== "edit"){
     const newTodo = {
       id : Math.random() ,
@@ -65,9 +65,15 @@ function addNewTodo (title){
       done : false , 
       pinned : false
     }
-    setTodos((data)=>{
-      return [newTodo , ...data]
-    })
+    const existingPinnedTodo = todos.find((todo) => todo.pinned === true);
+   let newtodos = todos.filter(todo => todo.pinned === false);  
+     if (existingPinnedTodo) {
+      setTodos([existingPinnedTodo , newTodo , ...newtodos])
+    } else {
+      setTodos((data) => {
+        return [newTodo , ...data ];
+      });
+    }
   }else if (mode === "edit"){
     const newTodos = todos.map(td => {
       if(td.id ===  activeTodo.id){
@@ -104,7 +110,7 @@ function bookmarkTodo (id) {
   todosWithoutBookmarked.forEach(todo => {
      todo.pinned = false;
   });
-  todoToBookmark.pinned = true;
+  todoToBookmark.pinned = !todoToBookmark.pinned;
   setTodos([todoToBookmark, ...todosWithoutBookmarked]) 
 }
 
