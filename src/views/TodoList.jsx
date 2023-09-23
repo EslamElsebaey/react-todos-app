@@ -97,18 +97,16 @@ function toggleFilter(){
 
 
 // bookmark todo 
-function bookmarkTodo (id){
-    const pinnedTodo = todos.find(todo => todo.id === id);
-    const updatedTodos = todos.filter(todo => todo.id !== id);
-    updatedTodos.map(todo => {
-       return todo.pinned = false
-    })
-    updatedTodos.unshift(pinnedTodo);
-    pinnedTodo.pinned = true;
-    console.log(pinnedTodo)
-    setTodos(updatedTodos);
-}
 
+function bookmarkTodo (id) {
+  const todoToBookmark = todos.find(todo => todo.id === id);
+  const todosWithoutBookmarked = todos.filter(todo => todo.id !== id);
+  todosWithoutBookmarked.forEach(todo => {
+     todo.pinned = false;
+  });
+  todoToBookmark.pinned = true;
+  setTodos([todoToBookmark, ...todosWithoutBookmarked]) 
+}
 
 
 // Edit todo
