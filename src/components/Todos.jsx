@@ -1,7 +1,7 @@
 import React from 'react'
 import Todo from './Todo';
 
-function Todos({todos , toggleDone , deleteTodo , editTodo , mode}) {
+function Todos({todos , toggleDone , deleteTodo , editTodo , mode , bookmarkTodo}) {
 
  
   return (
@@ -9,7 +9,7 @@ function Todos({todos , toggleDone , deleteTodo , editTodo , mode}) {
      
      {todos.length === 0 && <h2 className='no-todos'>لا يوجد مهام حالية</h2> }
     {todos.map(todo => (
-      <Todo mode={mode} editTodo={editTodo} deleteTodo={deleteTodo} toggleDone={toggleDone} todo ={todo} key ={todo.id}  />
+      <Todo bookmarkTodo={bookmarkTodo} mode={mode} editTodo={editTodo} deleteTodo={deleteTodo} toggleDone={toggleDone} todo ={todo} key ={todo.id}  />
     ))}
      
      

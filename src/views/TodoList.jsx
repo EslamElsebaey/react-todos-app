@@ -62,7 +62,8 @@ function addNewTodo (title){
     const newTodo = {
       id : Math.random() ,
       title : title , 
-      done : false
+      done : false , 
+      pinned : false
     }
     setTodos((data)=>{
       return [newTodo , ...data]
@@ -92,6 +93,20 @@ function toggleFilter(){
   }else {
     setMode("filter")
   }
+}
+
+
+// bookmark todo 
+function bookmarkTodo (id){
+    const pinnedTodo = todos.find(todo => todo.id === id);
+    const updatedTodos = todos.filter(todo => todo.id !== id);
+    updatedTodos.map(todo => {
+       return todo.pinned = false
+    })
+    updatedTodos.unshift(pinnedTodo);
+    pinnedTodo.pinned = true;
+    console.log(pinnedTodo)
+    setTodos(updatedTodos);
 }
 
 
@@ -137,6 +152,7 @@ setToLocal()
         editTodo={editTodo} 
         deleteTodo={deleteTodo} 
         toggleDone={toggleDone}
+        bookmarkTodo ={bookmarkTodo}
         todos= {currentTodos} />
       </div>
         </div>
