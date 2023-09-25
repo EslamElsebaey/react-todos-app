@@ -1,5 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Almarai:wght@400;800&display=swap");
-
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
 * {
   margin: 0;
   padding: 0;
@@ -18,7 +17,7 @@
   --color-dark: #030203;
   --shadow-card: 6px 6px 15px rgba(0, 0, 0, 0.3),
     -5px -5px 12px rgba(117, 108, 147, 0.1);
-  --font-family: "Almarai", "Segoe UI", sans-serif;
+  --font-family:  'Tajawal', sans-serif;
 }
 
 
@@ -133,16 +132,20 @@ main {
   border: none;
   outline: none;
   font-size: 20px;
-  font-family: "Almarai", "Segoe UI", sans-serif;
+  font-family: var(--font-family);
   padding: 0 10px;
   color: #dddce3;
+  font-weight: 500;
   box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
 }
-
+.todos-todo_cta-bookmark , .todos-todo_icon , .todos-todo_cta-edit , .todos-todo_cta-delete {
+  display: flex;
+  align-items: center;
+}
 .btn {
   min-height: 3rem;
   font-size: 1.25rem;
-  font-family: inherit;
+  font-family: var(--font-family);
   padding: 0.5rem 1.5rem;
   background-color: var(--color-red);
   cursor: pointer;
@@ -152,6 +155,7 @@ main {
   cursor: pointer;
   outline: none;
   transition: all 0.2s;
+  font-weight: 500;
 }
 .btn:hover {
   background-color: var(--color-red-dark);
@@ -185,7 +189,8 @@ main {
   flex: 1;
   margin: 0 1rem;
   vertical-align: top;
-  font-size: 18px;
+  font-size: 20px;
+  font-weight: 500;
 }
 .todos-todo_cta {
   display: flex;
