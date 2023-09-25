@@ -4,6 +4,7 @@ import TodosForm from './../components/TodosForm';
 import alertify from 'alertifyjs';
 import 'alertifyjs/build/css/themes/default.rtl.css';
 import 'alertifyjs/build/css/alertify.rtl.css';
+import sound from "../assets/complete-task.mp3"
 
 
 // alertify js edit
@@ -31,10 +32,17 @@ function setToLocal (){
 }
 
 // Toggle done in Todo
+// play sound when done
+function playSound (){
+  new Audio(sound).play()
+}
 function toggleDone (id){
  let newTodos = todos.map(todo => {
   if(todo.id === id){
     todo.done = !todo.done
+    if(todo.done){
+      playSound()
+    }
   }
   return todo
  })
