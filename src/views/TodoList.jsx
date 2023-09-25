@@ -89,6 +89,7 @@ function addNewTodo (title , id){
 }
 
 
+
 // Filter Todos
 function toggleFilter(){
   if(mode === "edit"){

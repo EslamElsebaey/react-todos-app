@@ -10,11 +10,11 @@ function Todo({todo , toggleDone , deleteTodo , editTodo , mode , bookmarkTodo})
       <div className="todos-todo_cta-edit" onClick={ ()=> editTodo(todo)}>
       <FeatherIcon icon="edit" size="23" />
       </div>
-      <div onClick={()=> deleteTodo(todo.id)} className="todos-todo_cta-delete">
-      <FeatherIcon icon="trash-2" size="23" />
-      </div>
       <div onClick={()=> bookmarkTodo(todo.id)}  className="todos-todo_cta-bookmark">
       <FeatherIcon size="23" className={todo.pinned ? "isPinned" : ""}  icon="bookmark" />
+      </div>
+      <div onClick={()=> deleteTodo(todo.id)} className="todos-todo_cta-delete">
+      <FeatherIcon icon="trash-2" size="23" />
       </div>
       </div>) : ""}
     
