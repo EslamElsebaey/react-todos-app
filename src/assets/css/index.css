@@ -81,9 +81,9 @@ header {
 }
 header h1 {
   text-align: center;
-  font-size: 1.75rem;
+  font-size: 2rem;
   padding : 2rem    0;
-  font-weight: 300;
+  font-weight: 500;
   color: var(--color-bg);
 }
 main {
