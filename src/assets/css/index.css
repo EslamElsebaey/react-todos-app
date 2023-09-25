@@ -194,16 +194,16 @@ main {
 .todos-todo_cta-edit {
   color: var(--color-yellow);
   cursor: pointer;
+  margin: 0 1rem;
 }
 .todos-todo_cta-delete {
-  margin-right: 1rem;
   color: var(--color-red);
   cursor: pointer;
 }
 .todos-todo_cta-bookmark{
   color: #fff;
   cursor: pointer;
-  margin-right: 1rem;
+  
 }
 .isPinned{
   color: #4ef59d;
