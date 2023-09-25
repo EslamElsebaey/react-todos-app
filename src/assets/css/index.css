@@ -261,7 +261,8 @@ main {
   align-items: center;
   justify-content: center;
   direction: ltr;
-  font-size: 18px;
+  font-size: 19px;
+  font-weight: 400;
   position: fixed;
   bottom: 0;
   left: 50%;
