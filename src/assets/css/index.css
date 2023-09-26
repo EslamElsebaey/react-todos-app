@@ -307,6 +307,7 @@ main {
 .todos-todo{
   background-color: var(--color-hover);
   margin-bottom: 10px;
+  min-height: 72px;
 }
 .todos-list{
   padding: 10px 0;
