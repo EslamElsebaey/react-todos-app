@@ -73,10 +73,10 @@ function addNewTodo (title , id){
       done : false , 
       pinned : false
     }
-    const existingPinnedTodo = todos.find((todo) => todo.pinned === true);
+    const existingPinnedTodos = todos.filter((todo) => todo.pinned === true);
    let newtodos = todos.filter(todo => todo.pinned === false);  
-     if (existingPinnedTodo) {
-      setTodos([existingPinnedTodo , newTodo , ...newtodos])
+     if (existingPinnedTodos.length > 0) {
+      setTodos([...existingPinnedTodos , newTodo , ...newtodos])
     } else {
       setTodos((data) => {
         return [newTodo , ...data ];
@@ -120,6 +120,7 @@ function bookmarkTodo (id) {
   const todosWithoutBookmarked = todos.filter(todo => todo.pinned === false);
   setTodos([...todosWithBookmarked ,  ...todosWithoutBookmarked]) 
 }
+
 
 
 
