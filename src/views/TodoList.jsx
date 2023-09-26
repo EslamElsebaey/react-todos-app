@@ -115,13 +115,12 @@ function toggleFilter(){
 
 function bookmarkTodo (id) {
   const todoToBookmark = todos.find(todo => todo.id === id);
-  const todosWithoutBookmarked = todos.filter(todo => todo.id !== id);
-  todosWithoutBookmarked.forEach(todo => {
-     todo.pinned = false;
-  });
   todoToBookmark.pinned = !todoToBookmark.pinned;
-  setTodos([todoToBookmark, ...todosWithoutBookmarked]) 
+  let todosWithBookmarked = todos.filter(todo => todo.pinned === true);
+  const todosWithoutBookmarked = todos.filter(todo => todo.pinned === false);
+  setTodos([...todosWithBookmarked ,  ...todosWithoutBookmarked]) 
 }
+
 
 
 // Edit todo
